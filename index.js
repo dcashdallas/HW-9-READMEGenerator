@@ -10,7 +10,7 @@ const questions = [
 
         type: 'input',
         name: 'repoName',
-        message: 'What is name of this application? (This will aslo the main header of the README)',
+        message: 'What is name of this application?',
 
     },
     {
