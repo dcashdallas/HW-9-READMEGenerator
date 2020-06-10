@@ -5,18 +5,18 @@ const inquirer = require("inquirer");
 
 
 const questions = [
+    {
+        type: 'input',
+        name: 'gitHubName',
+        message: 'What is your username on Github?',
+
+    },
 
     {
 
         type: 'input',
         name: 'repoName',
-        message: 'What is name of this application?',
-
-    },
-    {
-        type: 'input',
-        name: 'gitHubName',
-        message: 'What is your username on Github?',
+        message: 'What is title of this project?',
 
     },
 
@@ -29,21 +29,21 @@ const questions = [
 
     {
         type: 'input',
-        message: 'How does a user install your application? Provide instuctions here',
+        message: 'List the table of contents for this application',
         name: 'installApp',
 
     },
 
     {
         type: 'input',
-        message: 'How does a user use your application? Provide instuctions here',
+        message: 'Reference how is this application installed',
         name: 'appInstructions',
 
     },
 
     {
         type: 'input',
-        message: 'Would you like you users to be able to report issues or contribute to this project? add instructions here.',
+        message: 'What is the usage of this application?',
         name: 'appIssuesAndCont',
 
     },
@@ -57,10 +57,12 @@ const questions = [
 
     {
         type: 'input',
-        message: 'Who else contributed to your application? if none write "none" ',
+        message: 'List all additional contributors to this project (if none write "none") ',
         name: 'contributors',
 
     },
+
+
 
 ];
 
