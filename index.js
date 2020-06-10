@@ -1,6 +1,7 @@
 const fs = require("fs");
 const axios = require("axios");
 const inquirer = require("inquirer");
+const generateMarkdown = require("./utils/generateMarkdown");
 
 
 
@@ -73,7 +74,7 @@ function init() {
             else {
                 console.log("Success")
             }
-
+            const md = generateMarkdown(answers, github.data);
         })
 
         fs.appendFileSync("README.md", ("This application was developed by: " + response.gitHubName + '\n') + '\n', function (err) {
