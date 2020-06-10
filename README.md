@@ -1,13 +1,13 @@
 # Readme Generator
 This application was developed by: dcashdallas
 
-A simple Readme File Generator
+Generates a readme file automatically based on node responses
 ## Installation
-Run through node on the terminal
+
 ## How to use the Application
-Run through terminal and fill out the prompts
+run npm init, npm install inquirer, node index.js
 ## Issue Reporting and Contributing
-N
+To automatically generate readme file for application
 ## Other Contibuting Developers:
 none
 ## Licence(s)
