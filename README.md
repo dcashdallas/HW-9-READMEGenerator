@@ -1,14 +1,12 @@
 # Good Readme Generator
-This application was developed by: dcashdallas
+This application was developed by: dcashdallas 
 
-An easy to use readme genrator for your github repository
+An app that creates a readme file for your Github Repository.
 ## Installation
 npm init, install dependencies, run via terminal
 ## How to use the Application
-Answer the questions a prompted and the data will be used to generate a readme file.
-Additional Contributors
-undefined
+Run in terminal using node index.js, fill out the questions as prompted.
 ## Other Contibuting Developers:
 None
 ## Licence(s)
-mit
+MIT

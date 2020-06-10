@@ -124,16 +124,7 @@ function init() {
 
         })
 
-        fs.appendFileSync("README.md", ("Additional Contributors" + '\n' + response.appIssuesAndCont) + '\n', function (err) {
 
-            if (err) {
-                console.log(err)
-            }
-            else {
-                console.log("Success")
-            }
-
-        })
 
         fs.appendFileSync("README.md", ("## Other Contibuting Developers:" + '\n' + response.contributors) + '\n', function (err) {
 
