@@ -1,5 +1,5 @@
 const fs = require("fs");
-
+const axios = require("axios");
 const inquirer = require("inquirer");
 
 
@@ -29,24 +29,19 @@ const questions = [
 
     {
         type: 'input',
-        message: 'List the table of contents for this application',
+        message: 'Reference how is this application installed',
         name: 'installApp',
 
     },
 
     {
         type: 'input',
-        message: 'Reference how is this application installed',
+        message: 'What are the instructions for using this app?',
         name: 'appInstructions',
 
     },
 
-    {
-        type: 'input',
-        message: 'What is the usage of this application?',
-        name: 'appIssuesAndCont',
 
-    },
 
     {
         type: 'input',
@@ -126,7 +121,7 @@ function init() {
 
         })
 
-        fs.appendFileSync("README.md", ("## Issue Reporting and Contributing" + '\n' + response.appIssuesAndCont) + '\n', function (err) {
+        fs.appendFileSync("README.md", ("Additional Contributors" + '\n' + response.appIssuesAndCont) + '\n', function (err) {
 
             if (err) {
                 console.log(err)
