@@ -1,158 +1,79 @@
-const fs = require("fs");
 const axios = require("axios");
+const util = require("util");
+const fs = require("fs");
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
+const writeFileAsync = util.promisify(fs.writeFile);
 
+function promptUser() {
+    return inquirer.prompt(questions);
+};
 
+async function init() {
+    console.log("Welcome to this ReadMe Generator!");
+
+    try {
+        const answers = await promptUser();
+
+        let github = await axios.get(`https://api.github.com/users/${answers.username}`)
+
+        const md = generateMarkdown(answers, github.data);
+
+        await writeFileAsync("README.md", md);
+
+        console.log("You've created a new README file!");
+
+    } catch (err) {
+        console.log(err);
+
+    }
+};
 
 const questions = [
+    // created title reference
     {
-        type: 'input',
-        name: 'gitHubName',
-        message: 'What is your username on Github?',
-
+        message: "Input your GitHub username",
+        name: "username"
+    },
+    {
+        message: "What is the Title of your repo?",
+        name: "title"
     },
 
     {
-
-        type: 'input',
-        name: 'repoName',
-        message: 'What is title of this project?',
-
+        message: "Provide a description of your project",
+        name: "description"
     },
 
     {
-        type: 'input',
-        message: 'Write a description of this application',
-        name: 'description',
-
+        message: "How is this Applicatioin Installed?",
+        name: "installation"
     },
-
     {
-        type: 'input',
-        message: 'Reference how is this application installed',
-        name: 'installApp',
-
+        message: "Please select a License?",
+        name: "license",
+        type: "list",
+        choices: ["mit", "gpl", "apache-2.0", "mpl-2.0", "other", "none"]
     },
-
     {
-        type: 'input',
-        message: 'What are the instructions for using this app?',
-        name: 'appInstructions',
-
+        message: "Any Additional Contributors to this project",
+        name: "contributors"
     },
-
-
-
     {
-        type: 'input',
-        message: 'What license they would you  like to use? (Ex: MIT, GPL 3.0) If you do not wish to use a license type "none" ',
-        name: 'license',
-
+        message: "What is your Email",
+        name: "email"
     },
-
-    {
-        type: 'input',
-        message: 'List all additional contributors to this project (if none write "none") ',
-        name: 'contributors',
-
-    },
-
-
 
 ];
 
-function init() {
-    inquirer.prompt(questions).then((response) => {
 
 
-        fs.appendFileSync("README.md", ("# " + response.repoName) + '\n', function (err) {
-
-            if (err) {
-                console.log(err)
-            }
-            else {
-                console.log("Success")
-            }
-
-            generateMarkdown(answers, github.data);
-
-        })
-
-        fs.appendFileSync("README.md", ("This application was developed by: " + response.gitHubName + '\n') + '\n', function (err) {
-
-            if (err) {
-                console.log(err)
-            }
-            else {
-                console.log("Success")
-            }
-
-        })
-
-
-        fs.appendFileSync("README.md", (response.description) + '\n', function (err) {
-
-            if (err) {
-                console.log(err)
-            }
-            else {
-                console.log("Success")
-            }
-
-        })
-
-        fs.appendFileSync("README.md", ("## Installation" + '\n' + response.installApp) + '\n', function (err) {
-
-            if (err) {
-                console.log(err)
-            }
-            else {
-                console.log("Success")
-            }
-
-        })
-
-        fs.appendFileSync("README.md", ("## How to use the Application" + '\n' + response.appInstructions) + '\n', function (err) {
-
-            if (err) {
-                console.log(err)
-            }
-            else {
-                console.log("Success")
-            }
-
-        })
-
-
-
-        fs.appendFileSync("README.md", ("## Other Contibuting Developers:" + '\n' + response.contributors) + '\n', function (err) {
-
-            if (err) {
-                console.log(err)
-            }
-            else {
-                console.log("Success")
-            }
-
-        })
-
-        fs.appendFileSync("README.md", ("## Licence(s)" + '\n' + response.license) + '\n', function (err) {
-
-            if (err) {
-                console.log(err)
-            }
-            else {
-                console.log("Success")
-            }
-
-        })
-
-    })
-}
 
 
 init();
+
+
+
 
 
 
