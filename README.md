@@ -1,6 +1,6 @@
 
 <h1 align="center">Readme Generator</h1>
-  ## Description
+  ## Description<br>
 
   An easy to use README file generator for your GitHub Repositories.
   ## Table of Contents<br>
@@ -31,5 +31,6 @@
     <img src="https://img.shields.io/badge/Release%20Version%20-1.0-green"/></>
     <a>
     </p>
+    <br>
 
 ![readme file generator demo gif](https://github.com/dcashdallas/HW-9-READMEGenerator/blob/master/utils/readmegenerator.gif?raw=true)
