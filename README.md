@@ -31,3 +31,5 @@
     <img src="https://img.shields.io/badge/Release%20Version%20-1.0-green"/></>
     <a>
     </p>
+
+![readme file generator demo gif](https://github.com/dcashdallas/HW-9-READMEGenerator/blob/master/utils/readmegenerator.gif?raw=true)
