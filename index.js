@@ -10,7 +10,7 @@ function promptUser() {
 };
 
 async function init() {
-    console.log("Welcome to this ReadMe Generator!");
+    console.log("The README Generator Has Been Initialized. Please Fill Out the Prompts Below:");
 
     try {
         const answers = await promptUser();
@@ -21,7 +21,7 @@ async function init() {
 
         await writeFileAsync("README.md", md);
 
-        console.log("You've created a new README file!");
+        console.log("Your README File Has Been Generated. Thank you.");
 
     } catch (err) {
         console.log(err);
@@ -30,7 +30,7 @@ async function init() {
 };
 
 const questions = [
-    // created title reference
+
     {
         message: "Input your GitHub username",
         name: "username"
@@ -65,10 +65,6 @@ const questions = [
     },
 
 ];
-
-
-
-
 
 init();
 
