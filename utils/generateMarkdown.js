@@ -1,7 +1,7 @@
 function generateMarkdown(answers, data) {
   return `
 <h1 align="center">${answers.title}</h1>
-  ## **Description**<br>
+  ## Description\n
   ${answers.description}
   ## Table of Contents<br>
   **[Installation](#Installation)**<br>

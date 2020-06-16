@@ -1,6 +1,7 @@
 
 <h1 align="center">Readme Generator</h1>
-  ## **Description**<br>
+  ## Description
+
   An easy to use README file generator for your GitHub Repositories.
   ## Table of Contents<br>
   **[Installation](#Installation)**<br>
